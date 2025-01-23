@@ -5,21 +5,14 @@ import textReducer, { initialState } from './context/textReducer';
 import styles from './styles/App.module.css';
 
 function App() {
-  const addText = (text, color, size) => {
-    dispatchEvent({ type: 'ADD_TEXT', payload : { text, color, size }});
-  };
-
-  const deleteText = (index) => {
-    dispatchEvent({ type: 'DELETE_TEXT', index });
-
-  };
-
   return (
-    <div className={styles.app}>
-      <h1 className={styles.title}>Text Styler</h1>
-      <TextInputForm addText={addText}/>
-      <RenderedTextList texts={texts} deleteText={deleteText}/>
-    </div>
+    <TextProvider>
+      <div className={styles.app}>
+        <h1 className={styles.title}>Text Styler</h1>
+        <TextInputForm />
+        <RenderedTextList />
+      </div>
+    </TextProvider>
   );
 }
 

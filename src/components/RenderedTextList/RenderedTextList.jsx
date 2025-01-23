@@ -2,7 +2,13 @@ import React from 'react';
 import styles from './RenderedTextList.module.css';
 import Button from '../shared/Button';
 
-function RenderedTextList({ texts, deleteText }) {
+function RenderedTextList() {
+    const { texts, dispatch } = useContext(TextContext);
+  
+    const deleteText = (index) => {
+      dispatch({ type: 'DELETE_TEXT', index });
+    };
+  
     return (
       <div className={styles.list}>
         {texts.map((item, index) => (
