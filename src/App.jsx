@@ -1,18 +1,17 @@
-import React, { useReducer } from "react";
-import TextInputForm from './components/Form/TextInputForm';
-import RenderedTextList from './components/RenderedTextList/RenderedTextList';
-import textReducer, { initialState } from './context/textReducer';
-import styles from './styles/App.module.css';
+import React from "react";
+import { PostProvider } from "./context/PostContext";
+import PostForm from "./components/PostForm";
+import PostList from "./components/PostList";
 
 function App() {
   return (
-    <TextProvider>
-      <div className={styles.app}>
-        <h1 className={styles.title}>Text Styler</h1>
-        <TextInputForm />
-        <RenderedTextList />
+    <PostProvider>
+      <div>
+        <h1>Post Manager</h1>
+        <PostForm />
+        <PostList />
       </div>
-    </TextProvider>
+    </PostProvider>
   );
 }
 
